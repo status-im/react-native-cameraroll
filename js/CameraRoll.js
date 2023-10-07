@@ -242,6 +242,10 @@ class CameraRoll {
 
     return promise;
   }
+
+  static getPhotosCountiOS() {
+    return RNCCameraRoll.getPhotosCountIos();
+  }
 }
 
 module.exports = CameraRoll;

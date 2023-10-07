@@ -155,6 +155,11 @@ declare namespace CameraRoll {
   function deletePhotos(photoUris: Array<string>): Promise<boolean>;
 
   /**
+   * Returns the Camera Roll images count on iOS.
+   */
+  function getPhotosCountiOS(): Promise<number>;
+
+  /**
    * Saves the photo or video to the camera roll or photo library.
    */
   function saveToCameraRoll(
