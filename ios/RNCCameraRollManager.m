@@ -448,26 +448,6 @@ RCT_EXPORT_METHOD(getPhotosCountiOS:(NSArray<NSString *>*)assets
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-  // NSMutableArray *convertedAssets = [NSMutableArray array];
-  
-  // for (NSString *asset in assets) {
-  //   [convertedAssets addObject: [asset stringByReplacingOccurrencesOfString:@"ph://" withString:@""]];
-  // }
-
-  // [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-  //     PHFetchResult<PHAsset *> *fetched =
-  //       [PHAsset fetchAssetsWithLocalIdentifiers:convertedAssets options:nil];
-  //     [PHAssetChangeRequest deleteAssets:fetched];
-  //   }
-  // completionHandler:^(BOOL success, NSError *error) {
-  //   if (success == YES) {
-  //     resolve(@(success));
-  //   }
-  //   else {
-  //     reject(@"Couldn't delete", @"Couldn't delete assets", error);
-  //   }
-  // }
-  // ];
   PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
   resolve(allPhotosResult.count)
 }
