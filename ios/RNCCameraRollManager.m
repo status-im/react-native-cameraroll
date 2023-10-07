@@ -444,12 +444,11 @@ RCT_EXPORT_METHOD(deletePhotos:(NSArray<NSString *>*)assets
   ];
 }
 
-RCT_EXPORT_METHOD(getPhotosCountiOS:(NSString *)blank
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(getPhotosCountiOS)
 {
   PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
   resolve(allPhotosResult.count)
+  RCTLogInfo("Pretending to create an event");
 }
 
 static void checkPhotoLibraryConfig()
