@@ -127,6 +127,7 @@ RCT_EXPORT_METHOD(saveToCameraRoll:(NSURLRequest *)request
   __block PHAssetCollection *collection;
   __block PHObjectPlaceholder *placeholder;
 
+
   void (^saveBlock)(void) = ^void() {
     // performChanges and the completionHandler are called on
     // arbitrary threads, not the main thread - this is safe
@@ -448,8 +449,13 @@ RCT_EXPORT_METHOD(getPhotosCountiOS:(NSString *)blank
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    PHFetchResult *collections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    resolve(@[collections]);
+    __block NSInteger intTotalCount=0;
+    PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
+    allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d ",PHAssetMediaTypeImage];
+    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
+    intTotalCount+=allPhotosResult.count;
+
+    resolve(@(intTotalCount));
 }
 
 static void checkPhotoLibraryConfig()
