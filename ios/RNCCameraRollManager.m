@@ -444,7 +444,8 @@ RCT_EXPORT_METHOD(deletePhotos:(NSArray<NSString *>*)assets
   ];
 }
 
-RCT_EXPORT_METHOD(getPhotosCountiOS:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(getPhotosCountiOS:(NSString *)blank
+                  resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
   PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];

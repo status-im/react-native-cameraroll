@@ -244,7 +244,7 @@ class CameraRoll {
   }
 
   static getPhotosCountiOS(): Promise<number>  {
-    return RNCCameraRoll.getPhotosCountiOS();
+    return RNCCameraRoll.getPhotosCountiOS("");
   }
   
 }
