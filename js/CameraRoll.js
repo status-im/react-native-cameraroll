@@ -244,7 +244,7 @@ class CameraRoll {
   }
 
   static getPhotosCountiOS() {
-    return RNCCameraRoll.getPhotosCountIos();
+    return RNCCameraRoll.getPhotosCountiOS();
   }
   
 }
