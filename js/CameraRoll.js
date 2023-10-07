@@ -242,11 +242,12 @@ class CameraRoll {
 
     return promise;
   }
-
-  static getPhotosCountiOS(): number  {
-    return RNCCameraRoll.getPhotosCountiOS();
+  /**
+   Returns total iOS image count
+   */
+  static getPhotosCountiOS(): Promise<number> {
+    return RNCCameraRoll.getPhotosCountiOS('');
   }
-  
 }
 
 module.exports = CameraRoll;

@@ -444,11 +444,12 @@ RCT_EXPORT_METHOD(deletePhotos:(NSArray<NSString *>*)assets
   ];
 }
 
-RCT_EXPORT_METHOD(getPhotosCountiOS)
+RCT_EXPORT_METHOD(getPhotosCountiOS:(NSString *)blank
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
 {
-  PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
-  resolve(allPhotosResult.count)
-  RCTLogInfo("Pretending to create an event");
+    PHFetchResult *collections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    resolve(@[collections]);
 }
 
 static void checkPhotoLibraryConfig()
