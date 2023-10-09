@@ -160,6 +160,11 @@ declare namespace CameraRoll {
   function getPhotosCountiOS(): Promise<number>;
 
   /**
+   * Returns the Camera Roll favorite images count on iOS.
+   */
+  function getFavoritesiOS(): Promise<Album>;
+
+  /**
    * Saves the photo or video to the camera roll or photo library.
    */
   function saveToCameraRoll(

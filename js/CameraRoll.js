@@ -248,6 +248,10 @@ class CameraRoll {
   static getPhotosCountiOS(): Promise<number> {
     return RNCCameraRoll.getPhotosCountiOS('');
   }
+
+  static getFavoritesiOS(): Promise<Album> {
+    return RNCCameraRoll.getFavoritesiOS('');
+  }
 }
 
 module.exports = CameraRoll;
