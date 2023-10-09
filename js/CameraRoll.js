@@ -249,6 +249,9 @@ class CameraRoll {
     return RNCCameraRoll.getPhotosCountiOS('');
   }
 
+  /**
+   Returns favorites and their count iOS
+   */
   static getFavoritesiOS(): Promise<Album> {
     return RNCCameraRoll.getFavoritesiOS('');
   }

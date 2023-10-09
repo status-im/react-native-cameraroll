@@ -489,6 +489,8 @@ RCT_EXPORT_METHOD(getFavoritesiOS:(NSString *)blank
             @"duration": @([asset duration])
         }];
     }
+    
+    
     [result addObject:@{
         @"count": @(assetsFetchResult.count)
     }];
