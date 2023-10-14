@@ -242,6 +242,19 @@ class CameraRoll {
 
     return promise;
   }
+  /**
+   Returns total iOS image count
+   */
+  static getPhotosCountiOS(): Promise<number> {
+    return RNCCameraRoll.getPhotosCountiOS('');
+  }
+
+  /**
+   Returns favorites and their count iOS
+   */
+  static getFavoritesiOS(): Promise<Album> {
+    return RNCCameraRoll.getFavoritesiOS('');
+  }
 }
 
 module.exports = CameraRoll;

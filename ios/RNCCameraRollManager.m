@@ -443,6 +443,57 @@ RCT_EXPORT_METHOD(deletePhotos:(NSArray<NSString *>*)assets
   }
   ];
 }
+RCT_EXPORT_METHOD(getPhotosCountiOS:(NSString *)blank
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+{
+    __block NSInteger intTotalCount=0;
+    PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
+    allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d ",PHAssetMediaTypeImage];
+    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithOptions:allPhotosOptions];
+    intTotalCount+=allPhotosResult.count;
+    
+    resolve(@(intTotalCount));
+}
+
+RCT_EXPORT_METHOD(getFavoritesiOS:(NSString *)blank
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+{
+    __block NSInteger intTotalCount=0;
+    PHFetchOptions *fetchOptions = [PHFetchOptions new];
+    NSString *format = @"(favorite == true)";
+    fetchOptions.predicate = [NSPredicate predicateWithFormat:format];
+    PHFetchResult<PHAsset *> *const assetsFetchResult = [PHAsset fetchAssetsWithOptions:fetchOptions];
+    PHAsset *imageAsset = [assetsFetchResult firstObject];
+    NSMutableArray * result = [NSMutableArray new];
+    
+    
+    for (PHAsset* asset in assetsFetchResult) {
+        NSArray *resources = [PHAssetResource assetResourcesForAsset:asset ];
+        if ([resources count] < 1) continue;
+        NSString *orgFilename = ((PHAssetResource*)resources[0]).originalFilename;
+        NSString *uit = ((PHAssetResource*)resources[0]).uniformTypeIdentifier;
+        NSString *mimeType = (NSString *)CFBridgingRelease(UTTypeCopyPreferredTagWithClass((__bridge CFStringRef _Nonnull)(uit), kUTTagClassMIMEType));
+        CFStringRef extension = UTTypeCopyPreferredTagWithClass((__bridge CFStringRef _Nonnull)(uit), kUTTagClassFilenameExtension);
+        [result addObject:@{
+            @"width": @([asset pixelWidth]),
+            @"height": @([asset pixelHeight]),
+            @"filename": orgFilename ?: @"",
+            @"mimeType": mimeType ?: @"",
+            @"id": [asset localIdentifier],
+            @"creationDate": [asset creationDate],
+            @"uri": [NSString stringWithFormat:@"ph://%@", [asset localIdentifier]],
+            @"duration": @([asset duration])
+        }];
+    }
+    
+    
+    [result addObject:@{
+        @"count": @(assetsFetchResult.count)
+    }];
+    resolve(result);
+}
 
 static void checkPhotoLibraryConfig()
 {

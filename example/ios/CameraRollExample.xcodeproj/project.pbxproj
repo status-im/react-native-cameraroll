@@ -20,6 +20,7 @@
 		3E13565B03093F5D0EB6851C /* libPods-CameraRollExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F622B858D0D02D717DDBD411 /* libPods-CameraRollExample.a */; };
 		4B9B1123FD6E06421E758980 /* libPods-CameraRollExample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA04DD513A5CDFB75CCAD314 /* libPods-CameraRollExample-tvOSTests.a */; };
 		8B24C8D225785460007DD804 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B24C8D125785460007DD804 /* LaunchScreen.storyboard */; };
+		90939D1C2AD15DFF00CBDA92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B24C8D125785460007DD804 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,6 @@
 		13B07F961A680F5B00A75B9A /* CameraRollExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraRollExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CameraRollExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = CameraRollExample/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CameraRollExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CameraRollExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CameraRollExample/main.m; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-				8B24C8D225785460007DD804 /* LaunchScreen.storyboard in Resources */,
+				90939D1C2AD15DFF00CBDA92 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +665,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.2sa;
 				PRODUCT_NAME = CameraRollExample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -687,7 +687,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.2sa;
 				PRODUCT_NAME = CameraRollExample;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
